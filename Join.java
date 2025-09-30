@@ -10,7 +10,18 @@ public class Join implements Runnable{
       }
 
       public static void main(String[] args) {
-          
+          Thread t = new Thread(new Join());
+          t.start();
+
+          try{
+            t.join(3000);
+          }catch(InterruptedException e){
+            System.out.println(e);
+          }
+
+          System.out.println(t.getName());
+
+          System.out.println(t.isAlive());
       }
  }
 
